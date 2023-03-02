@@ -1,17 +1,22 @@
 import SwiftUI
 
-struct AwardGrid: View {
+struct AwardGrid: View
+{
   var title: String
   var awards: [AwardInformation]
 
-  var body: some View {
+  var body: some View
+  {
     Section(
       header: Text(title)
         .font(.title)
         .foregroundColor(.white)
-    ) {
-      ForEach(awards, id: \.self) { award in
-        NavigationLink(destination: AwardDetails(award: award)) {
+    )
+    {
+      ForEach(awards, id: \.self)
+        { award in
+        NavigationLink(destination: AwardDetails(award: award))
+        {
           AwardCardView(award: award)
             .foregroundColor(.black)
             .aspectRatio(0.67, contentMode: .fit)
@@ -21,27 +26,35 @@ struct AwardGrid: View {
   }
 }
 
-struct AwardsView: View {
+struct AwardsView: View
+{
   @EnvironmentObject var flightNavigation: AppEnvironment
-  var awardArray: [AwardInformation] {
+  var awardArray: [AwardInformation]
+  {
     flightNavigation.awardList
   }
 
-  var activeAwards: [AwardInformation] {
+  var activeAwards: [AwardInformation]
+  {
     awardArray.filter { $0.awarded }
   }
 
-  var inactiveAwards: [AwardInformation] {
+  var inactiveAwards: [AwardInformation]
+  {
     awardArray.filter { !$0.awarded }
   }
 
-  var awardColumns: [GridItem] {
+  var awardColumns: [GridItem]
+  {
     [GridItem(.adaptive(minimum: 150, maximum: 170))]
   }
 
-  var body: some View {
-    ScrollView {
-      LazyVGrid(columns: awardColumns) {
+  var body: some View
+  {
+    ScrollView
+    {
+      LazyVGrid(columns: awardColumns)
+      {
         AwardGrid(
           title: "Awarded",
           awards: activeAwards
@@ -51,7 +64,8 @@ struct AwardsView: View {
           awards: inactiveAwards
         )
       }
-    }.padding()
+    }
+    .padding()
     .background(
       Image("background-view")
         .resizable()
@@ -61,11 +75,15 @@ struct AwardsView: View {
   }
 }
 
-struct AwardsView_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationView {
+struct AwardsView_Previews: PreviewProvider
+{
+  static var previews: some View
+    {
+    NavigationView
+    {
       AwardsView()
-    }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    .navigationViewStyle(StackNavigationViewStyle())
     .environmentObject(AppEnvironment())
   }
 }

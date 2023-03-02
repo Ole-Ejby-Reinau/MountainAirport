@@ -1,13 +1,16 @@
 import SwiftUI
 
-struct WelcomeButtonView: View {
+struct WelcomeButtonView: View
+{
   var title: String
   var subTitle: String
   var imageName: String
   var imageAngle: Double = 0.0
 
-  var body: some View {
-    VStack(alignment: .leading) {
+  var body: some View
+  {
+    VStack(alignment: .leading)
+      {
       Image(systemName: imageName)
         .resizable()
         .frame(width: 30, height: 30)
@@ -23,7 +26,8 @@ struct WelcomeButtonView: View {
         .font(.title2)
       Text(subTitle)
         .font(.subheadline)
-    }.foregroundColor(.white)
+    }
+    .foregroundColor(.white)
     .padding()
     .frame(width: 155, height: 220, alignment: .leading)
     .background(
@@ -35,8 +39,10 @@ struct WelcomeButtonView: View {
   }
 }
 
-struct WelcomeButtonView_Previews: PreviewProvider {
-  static var previews: some View {
+struct WelcomeButtonView_Previews: PreviewProvider
+{
+  static var previews: some View
+    {
     WelcomeButtonView(
       title: "Flight Status",
       subTitle: "Departure and Arrival Information",

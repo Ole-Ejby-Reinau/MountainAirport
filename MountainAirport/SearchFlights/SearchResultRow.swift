@@ -1,25 +1,32 @@
 import SwiftUI
 
-struct SearchResultRow: View {
+struct SearchResultRow: View
+{
   var flight: FlightInformation
 
-  var timeFormatter: DateFormatter {
+  var timeFormatter: DateFormatter
+  {
     let tdf = DateFormatter()
     tdf.timeStyle = .short
     tdf.dateStyle = .medium
     return tdf
   }
 
-  var body: some View {
-    HStack {
+  var body: some View
+  {
+    HStack
+    {
       FlightStatusIcon(flight: flight)
         .padding(5)
         .clipShape(RoundedRectangle(cornerRadius: 7.0))
-      VStack(alignment: .leading) {
+        
+      VStack(alignment: .leading)
+      {
         Text(flight.flightName)
           .font(.title3) +
           Text(" \(flight.dirString) \(flight.otherAirport)")
-        HStack {
+        HStack
+        {
           Text(flight.localTime, formatter: timeFormatter)
             .foregroundColor(.gray)
         }
@@ -28,8 +35,10 @@ struct SearchResultRow: View {
   }
 }
 
-struct SearchResultRow_Previews: PreviewProvider {
-  static var previews: some View {
+struct SearchResultRow_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
     SearchResultRow(
       flight: FlightData.generateTestFlight(date: Date())
     )

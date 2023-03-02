@@ -1,14 +1,17 @@
 import SwiftUI
 
-struct SearchFlightsButton: View {
+struct SearchFlightsButton: View
+{
   @ObservedObject var flightInfo: FlightData
 
-  var body: some View {
+  var body: some View
+  {
     NavigationLink(
       destination: SearchFlights(
         flightData: flightInfo.flights
       )
-    ) {
+    )
+    {
       WelcomeButtonView(
         title: "Search Flights",
         subTitle: "Search upcoming flights",
@@ -18,8 +21,10 @@ struct SearchFlightsButton: View {
   }
 }
 
-struct SearchFlightsButton_Previews: PreviewProvider {
-  static var previews: some View {
+struct SearchFlightsButton_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
     SearchFlightsButton(flightInfo: FlightData())
   }
 }

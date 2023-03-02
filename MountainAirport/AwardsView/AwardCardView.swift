@@ -1,10 +1,13 @@
 import SwiftUI
 
-struct AwardCardView: View {
+struct AwardCardView: View
+{
   var award: AwardInformation
 
-  var body: some View {
-    VStack {
+  var body: some View
+  {
+    VStack
+    {
       Image(award.imageName)
         .shadow(radius: 10)
       Text(award.title)
@@ -29,8 +32,10 @@ struct AwardCardView: View {
   }
 }
 
-struct AwardCardView_Previews: PreviewProvider {
-  static var previews: some View {
+struct AwardCardView_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
     let award = AwardInformation(
       imageName: "first-visit-award",
       title: "First Visit",

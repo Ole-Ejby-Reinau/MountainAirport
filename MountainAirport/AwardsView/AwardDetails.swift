@@ -1,15 +1,19 @@
 import SwiftUI
 
-struct AwardDetails: View {
+struct AwardDetails: View
+{
   var award: AwardInformation
 
-  func imageSize(proxy: GeometryProxy) -> CGFloat {
+  func imageSize(proxy: GeometryProxy) -> CGFloat
+  {
     let size = min(proxy.size.width, proxy.size.height)
     return size * 0.8
   }
 
-  var body: some View {
-    VStack(alignment: .center) {
+  var body: some View
+  {
+    VStack(alignment: .center)
+    {
       Image(award.imageName)
         .resizable()
         .aspectRatio(contentMode: .fit)
@@ -21,14 +25,17 @@ struct AwardDetails: View {
         .font(.body)
         .padding()
       Spacer()
-    }.padding()
+    }
+    .padding()
     .opacity(award.awarded ? 1.0 : 0.4)
     .saturation(award.awarded ? 1 : 0)
   }
 }
 
-struct AwardDetails_Previews: PreviewProvider {
-  static var previews: some View {
+struct AwardDetails_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
     let award = AwardInformation(
       imageName: "first-visit-award",
       title: "First Visit",
@@ -43,7 +50,8 @@ struct AwardDetails_Previews: PreviewProvider {
       awarded: false
     )
 
-    Group {
+    Group
+    {
       AwardDetails(award: award)
       AwardDetails(award: award2)
     }

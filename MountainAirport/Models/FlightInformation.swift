@@ -6,7 +6,8 @@ enum FlightDirection {
   case departure
 }
 
-enum FlightStatus: String, CaseIterable {
+enum FlightStatus: String, CaseIterable
+{
   case ontime = "On Time"
   case delayed = "Delayed"
   case canceled = "Canceled"
@@ -14,7 +15,8 @@ enum FlightStatus: String, CaseIterable {
   case departed = "Departed"
 }
 
-class FlightInformation: NSObject {
+class FlightInformation: NSObject
+{
   var id: Int
   var airline: String
   var number: String

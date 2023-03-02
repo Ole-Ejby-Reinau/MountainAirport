@@ -1,13 +1,16 @@
 import SwiftUI
 
-struct FlightStatusButton: View {
+struct FlightStatusButton: View
+{
   @ObservedObject var flightInfo: FlightData
 
-  var body: some View {
+  var body: some View
+  {
     NavigationLink(
       destination: FlightStatusBoard(
         flights: flightInfo.getDaysFlights(Date()))
-    ) {
+    )
+    {
       WelcomeButtonView(
         title: "Flight Status",
         subTitle: "Departure and arrival information",
@@ -18,8 +21,10 @@ struct FlightStatusButton: View {
   }
 }
 
-struct FlightStatusButton_Previews: PreviewProvider {
-  static var previews: some View {
+struct FlightStatusButton_Previews: PreviewProvider
+{
+  static var previews: some View
+  {
     FlightStatusButton(flightInfo: FlightData())
   }
 }

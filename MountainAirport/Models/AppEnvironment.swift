@@ -1,10 +1,12 @@
 import SwiftUI
 
-class AppEnvironment: ObservableObject {
+class AppEnvironment: ObservableObject
+{
   @Published var lastFlightId: Int?
   @Published var awardList: [AwardInformation] = []
 
-  init() {
+  init()
+  {
     awardList.append(
       AwardInformation(
         imageName: "first-visit-award",

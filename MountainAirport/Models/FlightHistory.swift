@@ -1,6 +1,7 @@
 import SwiftUI
 
-class FlightHistory: NSObject {
+class FlightHistory: NSObject
+{
   var day: Int
   var flightId: Int
   var date: Date
@@ -9,7 +10,8 @@ class FlightHistory: NSObject {
   var scheduledTime: Date
   var actualTime: Date?
 
-  var shortDate: String {
+  var shortDate: String
+  {
     let formatter = DateFormatter()
     formatter.dateFormat = "MMM d"
     return formatter.string(from: date)
